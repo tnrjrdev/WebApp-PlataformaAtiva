@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #0c1426;
+  --color-muted: #5a6478;
+  --color-subtle: #f1f4fb;
+  --color-border: #e3e9f5;
+
+  --color-brand-50: #eaf1ff;
+  --color-brand-100: #d4e2ff;
+  --color-brand-200: #a9c5ff;
+  --color-brand-300: #7ea8ff;
+  --color-brand-400: #609dff;
+  --color-brand-500: #2f6fe6;
+  --color-brand-600: #1f54bf;
+  --color-brand-700: #143d96;
+  --color-brand-800: #013180;
+  --color-brand-900: #021f5c;
+
+  --color-accent: #609dff;
+  --color-success: #16a34a;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius: 0.875rem;
+  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04),
+    0 8px 24px -8px rgba(1, 49, 128, 0.12);
+  --shadow-lift: 0 10px 30px -10px rgba(1, 49, 128, 0.25);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background: var(--color-brand-400);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    max-width: 80rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(1, 49, 128, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(1, 49, 128, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .bg-radial-fade {
+    background: radial-gradient(
+      ellipse at top,
+      rgba(96, 157, 255, 0.18),
+      rgba(255, 255, 255, 0) 60%
+    );
+  }
+
+  .gradient-text {
+    background: linear-gradient(120deg, #013180 0%, #2f6fe6 50%, #609dff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
